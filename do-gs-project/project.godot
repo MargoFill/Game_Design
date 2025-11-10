@@ -12,7 +12,11 @@ config_version=5
 
 config/name="DoGS_Project"
 run/main_scene="uid://c5bmhdxc6ctns"
+<<<<<<< HEAD
 config/features=PackedStringArray("4.5", "Forward Plus")
+=======
+config/features=PackedStringArray("4.4", "Forward Plus")
+>>>>>>> fb5bb6e (lollll)
 config/icon="res://icon.svg"
 
 [rendering]
