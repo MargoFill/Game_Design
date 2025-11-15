@@ -4,11 +4,16 @@ extends CharacterBody3D
 #I adapted the script according to a tutorial to add fist person movement
 #most additions should have comments
 
+@export var dialogue: DialogueResource; #neccessary for the dialogue plugin to work
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 @onready var neck := $Neck
 @onready var camera = $Neck/Camera3D
+
+func _ready():
+	pass
 
 func  _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
