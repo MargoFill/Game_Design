@@ -2,19 +2,12 @@ extends CharacterBody3D
 
 var up = true
 
-var target_position: Vector3
-var move_time := 3.0
-var elapsed_time := 0.0
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var order_pos = Vector3(1, 1, -1)
 	var tween = create_tween()
 	tween.tween_property(self, "position", order_pos, 3)
 	tween.play()
-	
-	target_position = Vector3(1, 1, -1)
-	elapsed_time = 0.0
 	
 	DialogueManager.show_dialogue_balloon(load("res://dialogues/testdialogue.dialogue")) #plays the testdialogue
 
