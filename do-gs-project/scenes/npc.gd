@@ -22,5 +22,3 @@ func _process(delta: float) -> void:
 		up = false
 	if (position.y <= 1):
 		up = true
-	
-	#print(position.x, position.y, position.z)
