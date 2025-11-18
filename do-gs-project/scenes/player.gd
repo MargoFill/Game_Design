@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction = (neck.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized() #determine directions relative to neck
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -47,3 +47,11 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+	%InteractText.hide()
+	if $Neck/Camera3D/RayCast3D.is_colliding():
+		var in_vision = $Neck/Camera3D/RayCast3D.get_collider()
+		if in_vision != null and in_vision.has_method("interact"):
+			%InteractText.show()
+			if Input.is_action_just_pressed("interact"):
+				in_vision.interact()
