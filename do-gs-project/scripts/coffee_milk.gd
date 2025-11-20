@@ -17,6 +17,7 @@ func _process(delta):
 
 func _on_milktimer_timeout() -> void:
 	milktimer_running = false
+	%cup_sprite._add_milk()
 
 
 func _on_milk_button_button_down() -> void:
