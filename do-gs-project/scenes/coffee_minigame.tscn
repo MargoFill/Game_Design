@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c5bmhdxc6ctns"]
+[gd_scene load_steps=24 format=3 uid="uid://c5bmhdxc6ctns"]
 
 [ext_resource type="Script" uid="uid://dnh3k0e15b5pv" path="res://scripts/coffee_cup.gd" id="1_67dsn"]
 [ext_resource type="Texture2D" uid="uid://bql36nbp8yf20" path="res://assets/sprites/coffee_minigame/cup_empty.png" id="2_kff00"]
@@ -15,6 +15,8 @@
 [ext_resource type="Script" uid="uid://2bdjjyginwg8" path="res://scripts/strawberry_syrup.gd" id="12_f3amd"]
 [ext_resource type="Texture2D" uid="uid://cf1bpy3ys8cru" path="res://assets/sprites/coffee_minigame/syrup_vanilla.png" id="12_ycjhj"]
 [ext_resource type="Script" uid="uid://cs0l1oly76y3y" path="res://scripts/vanilla_syrup.gd" id="14_f3amd"]
+[ext_resource type="Script" uid="uid://bm752l8kdqcvu" path="res://scripts/trash.gd" id="16_qw0w7"]
+[ext_resource type="Texture2D" uid="uid://bufkp7vdgf0jo" path="res://assets/sprites/coffee_minigame/trash.png" id="17_8r4ny"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdge3"]
 size = Vector2(104, 88)
@@ -31,9 +33,13 @@ size = Vector2(15.75, 31.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3amd"]
 size = Vector2(13.75, 13)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dilnk"]
+size = Vector2(13.875, 13.75)
+
 [node name="coffee_minigame" type="Node2D"]
 
 [node name="coffee_cup" type="Area2D" parent="."]
+unique_name_in_owner = true
 z_index = 1
 position = Vector2(64, 64)
 script = ExtResource("1_67dsn")
@@ -185,6 +191,25 @@ offset_bottom = 7.0
 wait_time = 0.2
 one_shot = true
 
+[node name="trash" type="Area2D" parent="."]
+position = Vector2(1050, 550)
+scale = Vector2(8, 8)
+script = ExtResource("16_qw0w7")
+
+[node name="Sprite2D" type="Sprite2D" parent="trash"]
+texture = ExtResource("17_8r4ny")
+
+[node name="Button" type="Button" parent="trash/Sprite2D"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -7.125
+offset_top = -6.875
+offset_right = 7.125
+offset_bottom = 7.125
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="trash"]
+position = Vector2(-0.0625, 0)
+shape = SubResource("RectangleShape2D_dilnk")
+
 [connection signal="button_down" from="coffee_cup/cup_sprite/cup_button" to="coffee_cup" method="_on_button_button_down"]
 [connection signal="button_up" from="coffee_cup/cup_sprite/cup_button" to="coffee_cup" method="_on_button_button_up"]
 [connection signal="area_entered" from="coffee_plate" to="coffee_cup" method="_on_coffee_plate_area_entered"]
@@ -217,3 +242,4 @@ one_shot = true
 [connection signal="button_down" from="vanilla_syrup/Sprite2D/vanilla_button" to="vanilla_syrup" method="_on_vanilla_button_button_down"]
 [connection signal="button_up" from="vanilla_syrup/Sprite2D/vanilla_button" to="vanilla_syrup" method="_on_vanilla_button_button_up"]
 [connection signal="timeout" from="vanilla_syrup/vanillatimer" to="vanilla_syrup" method="_on_vanillatimer_timeout"]
+[connection signal="pressed" from="trash/Sprite2D/Button" to="trash" method="_on_button_pressed"]

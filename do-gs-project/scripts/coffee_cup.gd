@@ -31,5 +31,9 @@ func _on_coffee_plate_area_entered(area: Area2D) -> void:
 	cup_on_plate = true
 
 
-#func _on_coffee_plate_area_exited(area: Area2D) -> void:
-#	cup_on_plate = false
+func _delete() -> void:
+	dragging = false
+	offset = Vector2(0,0)
+	cup_on_plate = false
+	allow_movement = true
+	position = Vector2(64,64)
