@@ -37,5 +37,5 @@ func _on_vanilla_button_button_up() -> void:
 	if coffee_cup.cup_on_plate and vanilla_on_plate and not vanillatimer_running:
 		vanillatimer_running = true
 		vanillatimer.start()
-		dragging = false
-		position = Vector2(100, 500)
+	dragging = false
+	position = Vector2(100, 500)

@@ -29,8 +29,8 @@ func _on_chocolate_button_button_up() -> void:
 	if coffee_cup.cup_on_plate and chocolate_on_plate and not chocolatetimer_running:
 		chocolatetimer_running = true
 		chocolatetimer.start()
-		dragging = false
-		position = Vector2(100, 300)
+	dragging = false
+	position = Vector2(100, 300)
 
 
 func _on_coffee_plate_area_entered(area: Area2D) -> void:

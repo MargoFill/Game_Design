@@ -35,5 +35,5 @@ func _on_strawberry_button_button_up() -> void:
 	if coffee_cup.cup_on_plate and strawberry_on_plate and not strawberrytimer_running:
 		strawberrytimer_running = true
 		strawberrytimer.start()
-		dragging = false
-		position = Vector2(100, 400)
+	dragging = false
+	position = Vector2(100, 400)

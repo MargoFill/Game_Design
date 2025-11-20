@@ -69,3 +69,11 @@ func _add_vanilla() -> void:
 		if milkpumps == 1 and not added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
 			self.texture = vanilla
 			added_vanilla = true
+
+func _reset() -> void:
+	self.texture = empty
+	milkpumps = 0
+	added_coffee = false
+	added_strawberry = false
+	added_vanilla = false
+	added_chocolate = false
