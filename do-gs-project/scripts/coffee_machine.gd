@@ -11,3 +11,7 @@ func _on_button_pressed() -> void:
 			pressed = true
 			coffeemachinetimer.start()
 		
+
+
+func _on_coffeemachinetimer_timeout() -> void:
+	%cup_sprite._add_coffee()

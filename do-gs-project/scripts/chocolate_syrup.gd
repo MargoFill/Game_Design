@@ -17,6 +17,7 @@ func _process(delta):
 
 func _on_timer_timeout() -> void:
 	chocolatetimer_running = false
+	%cup_sprite._add_chocolate()
 
 
 func _on_chocolate_button_button_down() -> void:

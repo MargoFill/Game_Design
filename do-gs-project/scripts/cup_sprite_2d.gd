@@ -20,7 +20,7 @@ var added_chocolate = false
 func _ready() -> void:
 	self.texture = empty
 
-func _on_coffeemachinetimer_timeout() -> void:
+func _add_coffee() -> void:
 #	print("coffeemachinetimer_timeout")
 #	print("coffee_cup.cup_on_plate ", coffee_cup.cup_on_plate)
 #	print("milkpumps ", milkpumps)
@@ -34,7 +34,7 @@ func _on_coffeemachinetimer_timeout() -> void:
 			added_coffee = true
 
 
-func _on_milktimer_timeout() -> void:
+func _add_milk() -> void:
 #depending on the previous milk level, the colour of the cup changes
 #	print("milktimer_timeout")
 #	print("coffee_cup.cup_on_plate ", coffee_cup.cup_on_plate)
@@ -50,3 +50,22 @@ func _on_milktimer_timeout() -> void:
 		elif milkpumps == 1 and added_coffee:
 			self.texture = coffee2
 			milkpumps = 2
+
+
+func _add_chocolate() -> void:
+	if coffee_cup.cup_on_plate:
+		if milkpumps == 1 and not added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
+			self.texture = chocolate
+			added_chocolate = true
+
+func _add_strawberry() -> void:
+	if coffee_cup.cup_on_plate:
+		if milkpumps == 1 and not added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
+			self.texture = strawberry
+			added_strawberry = true
+
+func _add_vanilla() -> void:
+	if coffee_cup.cup_on_plate:
+		if milkpumps == 1 and not added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
+			self.texture = vanilla
+			added_vanilla = true
