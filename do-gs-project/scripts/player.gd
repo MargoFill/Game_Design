@@ -55,3 +55,9 @@ func _physics_process(delta: float) -> void:
 			%InteractText.show()
 			if Input.is_action_just_pressed("interact"):
 				in_vision.interact()
+
+func _capture_mouse() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func _free_mouse() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

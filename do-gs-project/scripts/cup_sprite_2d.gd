@@ -26,10 +26,10 @@ func _add_coffee() -> void:
 #	print("milkpumps ", milkpumps)
 #	print("added_coffee ", added_coffee)
 	if coffee_cup.cup_on_plate:
-		if milkpumps == 0 and not added_coffee:
+		if milkpumps == 0 and not added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
 			self.texture = coffee0
 			added_coffee = true
-		elif milkpumps == 1 and not added_coffee:
+		elif milkpumps == 1 and not added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
 			self.texture = coffee1
 			added_coffee = true
 
@@ -41,13 +41,13 @@ func _add_milk() -> void:
 #	print("milkpumps ", milkpumps)
 #	print("added_coffee ", added_coffee)
 	if coffee_cup.cup_on_plate:
-		if milkpumps == 0 and not added_coffee:
+		if milkpumps == 0 and not added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
 			self.texture = milk
 			milkpumps = 1
-		elif milkpumps == 0 and added_coffee:
+		elif milkpumps == 0 and added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
 			self.texture = coffee1
 			milkpumps = 1
-		elif milkpumps == 1 and added_coffee:
+		elif milkpumps == 1 and added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
 			self.texture = coffee2
 			milkpumps = 2
 
