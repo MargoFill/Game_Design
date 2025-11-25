@@ -1,6 +1,7 @@
 extends Sprite2D
 
 @onready var coffee_cup = get_parent()
+@onready var error_sound = $error_sound
 
 #different textures of the cup, higher level is less milk
 var empty = load('res://assets/sprites/coffee_minigame/cup_empty.png')
@@ -32,6 +33,10 @@ func _add_coffee() -> void:
 		elif milkpumps == 1 and not added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
 			self.texture = coffee1
 			added_coffee = true
+		else:
+			error_sound.play()
+	else:
+		error_sound.play()
 
 
 func _add_milk() -> void:
@@ -50,6 +55,10 @@ func _add_milk() -> void:
 		elif milkpumps == 1 and added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
 			self.texture = coffee2
 			milkpumps = 2
+		else:
+			error_sound.play()
+	else:
+		error_sound.play()
 
 
 func _add_chocolate() -> void:
@@ -57,18 +66,30 @@ func _add_chocolate() -> void:
 		if milkpumps == 1 and not added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
 			self.texture = chocolate
 			added_chocolate = true
+		else:
+			error_sound.play()
+	else:
+		error_sound.play()
 
 func _add_strawberry() -> void:
 	if coffee_cup.cup_on_plate:
 		if milkpumps == 1 and not added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
 			self.texture = strawberry
 			added_strawberry = true
+		else:
+			error_sound.play()
+	else:
+		error_sound.play()
 
 func _add_vanilla() -> void:
 	if coffee_cup.cup_on_plate:
 		if milkpumps == 1 and not added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
 			self.texture = vanilla
 			added_vanilla = true
+		else:
+			error_sound.play()
+	else:
+		error_sound.play()
 
 func _reset() -> void:
 	self.texture = empty

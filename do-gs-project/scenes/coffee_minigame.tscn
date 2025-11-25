@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c5bmhdxc6ctns"]
+[gd_scene load_steps=30 format=3 uid="uid://c5bmhdxc6ctns"]
 
 [ext_resource type="Texture2D" uid="uid://cqm1p2xqbjx8w" path="res://assets/vlack.png" id="1_8uys3"]
 [ext_resource type="Script" uid="uid://dnh3k0e15b5pv" path="res://scripts/coffee_cup.gd" id="1_67dsn"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://dod1p4stvakrr" path="res://scripts/coffee_milk.gd" id="8_eqgwy"]
 [ext_resource type="Texture2D" uid="uid://d2vbuucrywsmv" path="res://assets/sprites/coffee_minigame/milk_placeholder.png" id="8_vfmh3"]
 [ext_resource type="Texture2D" uid="uid://dfbujqy8hl5kd" path="res://assets/sprites/coffee_minigame/syrup_chocolate.png" id="10_71nbp"]
+[ext_resource type="AudioStream" uid="uid://b3ayo1g6a0mpo" path="res://assets/sounds/error.wav" id="10_f6eo0"]
 [ext_resource type="Script" uid="uid://cn73j4sg4ag41" path="res://scripts/chocolate_syrup.gd" id="10_kff00"]
 [ext_resource type="Texture2D" uid="uid://dymsn3rmt2lsv" path="res://assets/sprites/coffee_minigame/syrup_strawberry.png" id="11_kff00"]
 [ext_resource type="Script" uid="uid://2bdjjyginwg8" path="res://scripts/strawberry_syrup.gd" id="12_f3amd"]
@@ -71,6 +72,10 @@ offset_left = -7.0
 offset_top = -4.0
 offset_right = 6.0
 offset_bottom = 7.0
+
+[node name="error_sound" type="AudioStreamPlayer2D" parent="coffee_cup/cup_sprite"]
+position = Vector2(47.255627, 3.8311253)
+stream = ExtResource("10_f6eo0")
 
 [node name="cup_CollisionShape2D" type="CollisionShape2D" parent="coffee_cup"]
 z_index = 1
