@@ -22,8 +22,8 @@ func  _input(event: InputEvent) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) #free mouse if escape
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion: #rotate camera and neck when mouse if moving
-			neck.rotate_y(-event.relative.x * 0.01) #since 3 is a full rotation, I multiplied it with a small number, may needs to be changed
-			camera.rotate_x(-event.relative.y * 0.01)
+			neck.rotate_y(-event.relative.x * (0.01 + (Global_Values.sensitivity - 5) * 0.0015)) #since 3 is a full rotation, I multiplied it with a small number, may needs to be changed
+			camera.rotate_x(-event.relative.y * (0.01 + (Global_Values.sensitivity - 5) * 0.0015))
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-30), deg_to_rad(60)) #limit rotation
 
 func _physics_process(delta: float) -> void:
