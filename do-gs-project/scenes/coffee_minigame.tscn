@@ -114,7 +114,7 @@ position = Vector2(274.5, 150)
 shape = SubResource("RectangleShape2D_yhgqp")
 
 [node name="coffeemachinetimer" type="Timer" parent="coffee_machine"]
-wait_time = 3.0
+wait_time = 0.5
 one_shot = true
 
 [node name="coffee_milk" type="Area2D" parent="."]

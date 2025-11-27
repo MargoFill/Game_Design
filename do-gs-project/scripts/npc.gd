@@ -9,7 +9,7 @@ func _ready() -> void:
 	tween.tween_property(self, "position", order_pos, 3)
 	tween.play()
 	
-	DialogueManager.show_dialogue_balloon(load("res://dialogues/testdialogue.dialogue")) #plays the testdialogue
+	#DialogueManager.show_dialogue_balloon(load("res://dialogues/testdialogue.dialogue")) #plays the testdialogue
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
