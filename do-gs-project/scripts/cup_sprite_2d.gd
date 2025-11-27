@@ -12,14 +12,15 @@ var milk = load('res://assets/sprites/coffee_minigame/cup_milk.png')
 var strawberry = load('res://assets/sprites/coffee_minigame/cup_strawberry.png')
 var vanilla = load('res://assets/sprites/coffee_minigame/cup_vanilla.png')
 var chocolate = load('res://assets/sprites/coffee_minigame/cup_chocolate.png')
-var milkpumps = 0
-var added_coffee = false
-var added_strawberry = false
-var added_vanilla = false
-var added_chocolate = false
+
 
 func _ready() -> void:
 	self.texture = empty
+	Global_Values.milkpumps = 0
+	Global_Values.added_coffee = false
+	Global_Values.added_strawberry = false
+	Global_Values.added_vanilla = false
+	Global_Values.added_chocolate = false
 
 func _add_coffee() -> void:
 #	print("coffeemachinetimer_timeout")
@@ -27,12 +28,12 @@ func _add_coffee() -> void:
 #	print("milkpumps ", milkpumps)
 #	print("added_coffee ", added_coffee)
 	if coffee_cup.cup_on_plate:
-		if milkpumps == 0 and not added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
+		if Global_Values.milkpumps == 0 and not Global_Values.added_coffee and not Global_Values.added_chocolate and not Global_Values.added_vanilla and not Global_Values.added_strawberry:
 			self.texture = coffee0
-			added_coffee = true
-		elif milkpumps == 1 and not added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
+			Global_Values.added_coffee = true
+		elif Global_Values.milkpumps == 1 and not Global_Values.added_coffee and not Global_Values.added_chocolate and not Global_Values.added_vanilla and not Global_Values.added_strawberry:
 			self.texture = coffee1
-			added_coffee = true
+			Global_Values.added_coffee = true
 		else:
 			error_sound.play()
 	else:
@@ -46,15 +47,15 @@ func _add_milk() -> void:
 #	print("milkpumps ", milkpumps)
 #	print("added_coffee ", added_coffee)
 	if coffee_cup.cup_on_plate:
-		if milkpumps == 0 and not added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
+		if Global_Values.milkpumps == 0 and not Global_Values.added_coffee and not Global_Values.added_chocolate and not Global_Values.added_vanilla and not Global_Values.added_strawberry:
 			self.texture = milk
-			milkpumps = 1
-		elif milkpumps == 0 and added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
+			Global_Values.milkpumps = 1
+		elif Global_Values.milkpumps == 0 and Global_Values.added_coffee and not Global_Values.added_chocolate and not Global_Values.added_vanilla and not Global_Values.added_strawberry:
 			self.texture = coffee1
-			milkpumps = 1
-		elif milkpumps == 1 and added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
+			Global_Values.milkpumps = 1
+		elif Global_Values.milkpumps == 1 and Global_Values.added_coffee and not Global_Values.added_chocolate and not Global_Values.added_vanilla and not Global_Values.added_strawberry:
 			self.texture = coffee2
-			milkpumps = 2
+			Global_Values.milkpumps = 2
 		else:
 			error_sound.play()
 	else:
@@ -63,9 +64,9 @@ func _add_milk() -> void:
 
 func _add_chocolate() -> void:
 	if coffee_cup.cup_on_plate:
-		if milkpumps == 1 and not added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
+		if Global_Values.milkpumps == 1 and not Global_Values.added_coffee and not Global_Values.added_chocolate and not Global_Values.added_vanilla and not Global_Values.added_strawberry:
 			self.texture = chocolate
-			added_chocolate = true
+			Global_Values.added_chocolate = true
 		else:
 			error_sound.play()
 	else:
@@ -73,9 +74,9 @@ func _add_chocolate() -> void:
 
 func _add_strawberry() -> void:
 	if coffee_cup.cup_on_plate:
-		if milkpumps == 1 and not added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
+		if Global_Values.milkpumps == 1 and not Global_Values.added_coffee and not Global_Values.added_chocolate and not Global_Values.added_vanilla and not Global_Values.added_strawberry:
 			self.texture = strawberry
-			added_strawberry = true
+			Global_Values.added_strawberry = true
 		else:
 			error_sound.play()
 	else:
@@ -83,9 +84,9 @@ func _add_strawberry() -> void:
 
 func _add_vanilla() -> void:
 	if coffee_cup.cup_on_plate:
-		if milkpumps == 1 and not added_coffee and not added_chocolate and not added_vanilla and not added_strawberry:
+		if Global_Values.milkpumps == 1 and not Global_Values.added_coffee and not Global_Values.added_chocolate and not Global_Values.added_vanilla and not Global_Values.added_strawberry:
 			self.texture = vanilla
-			added_vanilla = true
+			Global_Values.added_vanilla = true
 		else:
 			error_sound.play()
 	else:
@@ -93,8 +94,8 @@ func _add_vanilla() -> void:
 
 func _reset() -> void:
 	self.texture = empty
-	milkpumps = 0
-	added_coffee = false
-	added_strawberry = false
-	added_vanilla = false
-	added_chocolate = false
+	Global_Values.milkpumps = 0
+	Global_Values.added_coffee = false
+	Global_Values.added_strawberry = false
+	Global_Values.added_vanilla = false
+	Global_Values.added_chocolate = false
