@@ -258,10 +258,10 @@ texture = ExtResource("18_lrpmp")
 
 [node name="vanilla_button" type="Button" parent="vanilla_syrup/Sprite2D"]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = -6.83333
-offset_top = -5.83333
-offset_right = 7.0
-offset_bottom = 7.0
+offset_left = -952.0
+offset_top = -1095.0
+offset_right = 595.0
+offset_bottom = 1881.0
 
 [node name="vanillatimer" type="Timer" parent="vanilla_syrup"]
 wait_time = 0.2
