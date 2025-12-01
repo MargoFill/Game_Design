@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://j20jq36bda4c"]
+[gd_scene load_steps=5 format=3 uid="uid://j20jq36bda4c"]
 
 [ext_resource type="Script" uid="uid://ddwcmsldtqlb7" path="res://scripts/menu.gd" id="1_4ytvr"]
 [ext_resource type="Texture2D" uid="uid://c0712ngihiam3" path="res://assets/sprites/menu/menubg.jpeg" id="2_13sgg"]
+[ext_resource type="AudioStream" uid="uid://cqu6qfpg3rlk2" path="res://assets/sounds/b423b42 (1).wav" id="2_mhnvy"]
 [ext_resource type="Texture2D" uid="uid://clltaf85aivq" path="res://assets/sprites/menu/menuhover.png" id="3_con2f"]
 
 [node name="main_menu" type="Control"]
@@ -12,6 +13,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4ytvr")
+
+[node name="music_menu" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_mhnvy")
+autoplay = true
 
 [node name="menubg" type="TextureRect" parent="."]
 texture_filter = 1
@@ -79,6 +84,7 @@ offset_bottom = 559.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_con2f")
 
+[connection signal="finished" from="music_menu" to="." method="_on_music_menu_finished"]
 [connection signal="mouse_entered" from="start" to="." method="_on_start_mouse_entered"]
 [connection signal="mouse_exited" from="start" to="." method="_on_start_mouse_exited"]
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]

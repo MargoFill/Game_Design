@@ -2,6 +2,7 @@ extends Control
 @onready var hover_start: TextureRect = $hover_start
 @onready var hover_settings: TextureRect = $hover_settings
 @onready var hover_exit: TextureRect = $hover_exit
+@onready var music_menu: AudioStreamPlayer2D = $music_menu
 
 
 
@@ -49,3 +50,7 @@ func _on_exit_mouse_entered() -> void:
 
 func _on_exit_mouse_exited() -> void:
 	hover_exit.visible = false
+
+
+func _on_music_menu_finished() -> void:
+	music_menu.play()
