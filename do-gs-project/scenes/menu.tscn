@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://j20jq36bda4c"]
 
 [ext_resource type="Script" uid="uid://ddwcmsldtqlb7" path="res://scripts/menu.gd" id="1_4ytvr"]
-[ext_resource type="Texture2D" uid="uid://c0712ngihiam3" path="res://assets/sprites/menu/menubg.jpeg" id="2_13sgg"]
 [ext_resource type="AudioStream" uid="uid://cqu6qfpg3rlk2" path="res://assets/sounds/b423b42 (1).wav" id="2_mhnvy"]
 [ext_resource type="Texture2D" uid="uid://clltaf85aivq" path="res://assets/sprites/menu/menuhover.png" id="3_con2f"]
+[ext_resource type="Texture2D" uid="uid://dx0xfgv4api4v" path="res://assets/sprites/menu/menuagain.png" id="3_mhnvy"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -21,66 +21,64 @@ autoplay = true
 [node name="menubg" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_left = -3.0
+offset_left = -12.0
 offset_top = -5.0
-offset_right = 1165.0
-offset_bottom = 652.0
-texture = ExtResource("2_13sgg")
+offset_right = 2342.0
+offset_bottom = 1307.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_mhnvy")
 
 [node name="start" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 559.0
-offset_top = 248.0
+offset_top = 272.0
 offset_right = 678.0
-offset_bottom = 328.0
+offset_bottom = 352.0
 
 [node name="settings" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 494.0
-offset_top = 348.0
-offset_right = 714.0
-offset_bottom = 438.0
+offset_left = 499.0
+offset_top = 365.0
+offset_right = 719.0
+offset_bottom = 455.0
 
 [node name="exit" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 541.0
-offset_top = 448.0
-offset_right = 641.0
-offset_bottom = 532.0
+offset_left = 539.0
+offset_top = 456.0
+offset_right = 639.0
+offset_bottom = 540.0
 
 [node name="hover_start" type="TextureRect" parent="."]
-visible = false
 texture_filter = 1
 layout_mode = 0
-offset_left = 513.0
-offset_top = 266.0
-offset_right = 613.0
-offset_bottom = 366.0
+offset_left = 502.0
+offset_top = 282.0
+offset_right = 602.0
+offset_bottom = 382.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_con2f")
 
 [node name="hover_settings" type="TextureRect" parent="."]
-visible = false
 texture_filter = 1
 layout_mode = 0
-offset_left = 456.0
-offset_top = 355.0
-offset_right = 556.0
-offset_bottom = 455.0
+offset_left = 446.0
+offset_top = 369.0
+offset_right = 546.0
+offset_bottom = 469.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_con2f")
 
 [node name="hover_exit" type="TextureRect" parent="."]
-visible = false
 texture_filter = 1
 layout_mode = 0
-offset_left = 498.0
-offset_top = 459.0
-offset_right = 598.0
-offset_bottom = 559.0
+offset_left = 490.0
+offset_top = 464.0
+offset_right = 590.0
+offset_bottom = 564.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_con2f")
 
