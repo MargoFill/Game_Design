@@ -1,12 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://j20jq36bda4c"]
+[gd_scene load_steps=4 format=3 uid="uid://j20jq36bda4c"]
 
 [ext_resource type="Script" uid="uid://ddwcmsldtqlb7" path="res://scripts/menu.gd" id="1_4ytvr"]
-[ext_resource type="Texture2D" uid="uid://dftywxhgkdasg" path="res://assets/sprites/menu/start_0.png" id="1_con2f"]
-[ext_resource type="Texture2D" uid="uid://bkhnkob1ttukj" path="res://assets/sprites/menu/start_1.png" id="2_4ytvr"]
-[ext_resource type="Texture2D" uid="uid://bbtlwxx1u1u5c" path="res://assets/sprites/menu/options_0.png" id="2_mhnvy"]
-[ext_resource type="Texture2D" uid="uid://c4osvdro42esc" path="res://assets/sprites/menu/options_1.png" id="4_mhnvy"]
-[ext_resource type="Texture2D" uid="uid://bgwwotc7bpyx4" path="res://assets/sprites/menu/exit_0.png" id="6_v86rl"]
-[ext_resource type="Texture2D" uid="uid://dfqhxogyrwanl" path="res://assets/sprites/menu/exit_1.png" id="7_13sgg"]
+[ext_resource type="Texture2D" uid="uid://c0712ngihiam3" path="res://assets/sprites/menu/menubg.jpeg" id="2_13sgg"]
+[ext_resource type="Texture2D" uid="uid://clltaf85aivq" path="res://assets/sprites/menu/menuhover.png" id="3_con2f"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -17,57 +13,78 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4ytvr")
 
-[node name="start_button" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -132.0
-offset_top = -136.0
-offset_right = -100.0
-offset_bottom = -120.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(8, 8)
-texture_normal = ExtResource("1_con2f")
-texture_hover = ExtResource("2_4ytvr")
+[node name="menubg" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -3.0
+offset_top = -5.0
+offset_right = 1165.0
+offset_bottom = 652.0
+texture = ExtResource("2_13sgg")
 
-[node name="options_button" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -132.0
-offset_top = 14.0
-offset_right = -100.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(8, 8)
-texture_normal = ExtResource("2_mhnvy")
-texture_hover = ExtResource("4_mhnvy")
+[node name="start" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 559.0
+offset_top = 248.0
+offset_right = 678.0
+offset_bottom = 328.0
 
-[node name="exit_button" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -132.0
-offset_top = 164.0
-offset_right = -100.0
-offset_bottom = 180.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(8, 8)
-texture_normal = ExtResource("6_v86rl")
-texture_hover = ExtResource("7_13sgg")
+[node name="settings" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 494.0
+offset_top = 348.0
+offset_right = 714.0
+offset_bottom = 438.0
 
-[connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="options_button" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]
+[node name="exit" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 541.0
+offset_top = 448.0
+offset_right = 641.0
+offset_bottom = 532.0
+
+[node name="hover_start" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 513.0
+offset_top = 266.0
+offset_right = 613.0
+offset_bottom = 366.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_con2f")
+
+[node name="hover_settings" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 456.0
+offset_top = 355.0
+offset_right = 556.0
+offset_bottom = 455.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_con2f")
+
+[node name="hover_exit" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 498.0
+offset_top = 459.0
+offset_right = 598.0
+offset_bottom = 559.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_con2f")
+
+[connection signal="mouse_entered" from="start" to="." method="_on_start_mouse_entered"]
+[connection signal="mouse_exited" from="start" to="." method="_on_start_mouse_exited"]
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="mouse_exited" from="settings" to="." method="_on_settings_mouse_exited"]
+[connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="exit" to="." method="_on_exit_mouse_exited"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

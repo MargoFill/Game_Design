@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c5bmhdxc6ctns"]
+[gd_scene load_steps=34 format=3 uid="uid://c5bmhdxc6ctns"]
 
 [ext_resource type="Script" uid="uid://dnh3k0e15b5pv" path="res://scripts/coffee_cup.gd" id="1_67dsn"]
 [ext_resource type="Script" uid="uid://bkp1ls3d2s0n6" path="res://scenes/coffee_minigame.gd" id="1_gxvqg"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://bx5ti3d0g5xge" path="res://assets/sprites/coffee_minigame/new_assets/vanillasyrup.png" id="18_lrpmp"]
 [ext_resource type="Texture2D" uid="uid://8lmfeiwmkuwj" path="res://assets/sprites/coffee_minigame/serve.png" id="19_8uys3"]
 [ext_resource type="Texture2D" uid="uid://bvwcnbsliuhxv" path="res://assets/sprites/coffee_minigame/new_assets/trashcan.png" id="20_ybhe4"]
+[ext_resource type="Texture2D" uid="uid://4e56h1nsgc0" path="res://assets/sprites/coffee_minigame/new_assets/serve_button_hover44.png" id="26_yy6xq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdge3"]
 size = Vector2(104, 88)
@@ -45,7 +46,7 @@ size = Vector2(11.75, 15.8333)
 size = Vector2(13.875, 20.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxvqg"]
-size = Vector2(36.6667, 12.5)
+size = Vector2(37.8334, 16.5)
 
 [node name="coffee_minigame" type="Node2D"]
 script = ExtResource("1_gxvqg")
@@ -280,7 +281,7 @@ scale = Vector2(6, 6)
 script = ExtResource("18_dilnk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="serve"]
-position = Vector2(0, -0.0833359)
+position = Vector2(-0.583336, 0.0833359)
 shape = SubResource("RectangleShape2D_gxvqg")
 
 [node name="Sprite2D" type="Sprite2D" parent="serve"]
@@ -291,10 +292,21 @@ texture = ExtResource("19_8uys3")
 
 [node name="serve_button" type="Button" parent="serve/Sprite2D"]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = -900.0
-offset_top = 625.0
-offset_right = 725.0
-offset_bottom = 1208.0
+anchors_preset = -1
+anchor_left = 0.481
+anchor_top = 0.681
+anchor_right = 0.481
+anchor_bottom = 0.681
+offset_left = -3513.0
+offset_top = -2947.0
+offset_right = -1513.0
+offset_bottom = -2055.0
+
+[node name="serve_hover" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(570, 581)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("26_yy6xq")
 
 [connection signal="button_down" from="coffee_cup/cup_sprite/cup_button" to="coffee_cup" method="_on_button_button_down"]
 [connection signal="button_up" from="coffee_cup/cup_sprite/cup_button" to="coffee_cup" method="_on_button_button_up"]
@@ -329,5 +341,7 @@ offset_bottom = 1208.0
 [connection signal="button_up" from="vanilla_syrup/Sprite2D/vanilla_button" to="vanilla_syrup" method="_on_vanilla_button_button_up"]
 [connection signal="timeout" from="vanilla_syrup/vanillatimer" to="vanilla_syrup" method="_on_vanillatimer_timeout"]
 [connection signal="pressed" from="trash/Sprite2D/Button" to="trash" method="_on_button_pressed"]
+[connection signal="mouse_entered" from="serve/Sprite2D/serve_button" to="." method="_on_serve_button_mouse_entered"]
+[connection signal="mouse_exited" from="serve/Sprite2D/serve_button" to="." method="_on_serve_button_mouse_exited"]
 [connection signal="pressed" from="serve/Sprite2D/serve_button" to="." method="_on_serve_button_pressed"]
 [connection signal="pressed" from="serve/Sprite2D/serve_button" to="serve" method="_on_serve_button_pressed"]
