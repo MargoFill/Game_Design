@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://4e56h1nsgc0" path="res://assets/sprites/coffee_minigame/new_assets/serve_button_hover44.png" id="26_yy6xq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vdge3"]
-size = Vector2(104, 88)
+size = Vector2(140, 112)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13anl"]
 size = Vector2(112, 112)
@@ -43,7 +43,7 @@ size = Vector2(329, 68)
 size = Vector2(15.75, 31.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3amd"]
-size = Vector2(11.75, 15.8333)
+size = Vector2(11.75, 27.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dilnk"]
 size = Vector2(13.875, 20.5)
@@ -117,7 +117,7 @@ stream = ExtResource("10_f6eo0")
 
 [node name="cup_CollisionShape2D" type="CollisionShape2D" parent="coffee_cup"]
 z_index = 1
-position = Vector2(60, 76)
+position = Vector2(68, 64)
 shape = SubResource("RectangleShape2D_vdge3")
 
 [node name="coffee_plate" type="Area2D" parent="."]
@@ -248,7 +248,7 @@ scale = Vector2(6, 6)
 script = ExtResource("14_f3amd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="vanilla_syrup"]
-position = Vector2(0.125, 0.5)
+position = Vector2(0.125, 0.916668)
 shape = SubResource("RectangleShape2D_f3amd")
 
 [node name="Sprite2D" type="Sprite2D" parent="vanilla_syrup"]
