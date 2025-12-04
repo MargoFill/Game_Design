@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=3 uid="uid://j20jq36bda4c"]
+
+[ext_resource type="Script" uid="uid://ddwcmsldtqlb7" path="res://scripts/menu.gd" id="1_4ytvr"]
+[ext_resource type="Texture2D" uid="uid://c0712ngihiam3" path="res://assets/sprites/menu/menubg.jpeg" id="2_13sgg"]
+[ext_resource type="AudioStream" uid="uid://cqu6qfpg3rlk2" path="res://assets/sounds/b423b42 (1).wav" id="2_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://clltaf85aivq" path="res://assets/sprites/menu/menuhover.png" id="3_con2f"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ytvr")
+
+[node name="music_menu" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_mhnvy")
+autoplay = true
+
+[node name="menubg" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -3.0
+offset_top = -5.0
+offset_right = 1165.0
+offset_bottom = 652.0
+texture = ExtResource("2_13sgg")
+
+[node name="start" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 559.0
+offset_top = 248.0
+offset_right = 678.0
+offset_bottom = 328.0
+
+[node name="settings" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 494.0
+offset_top = 348.0
+offset_right = 714.0
+offset_bottom = 438.0
+
+[node name="exit" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 541.0
+offset_top = 448.0
+offset_right = 641.0
+offset_bottom = 532.0
+
+[node name="hover_start" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 513.0
+offset_top = 266.0
+offset_right = 613.0
+offset_bottom = 366.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_con2f")
+
+[node name="hover_settings" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 456.0
+offset_top = 355.0
+offset_right = 556.0
+offset_bottom = 455.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_con2f")
+
+[node name="hover_exit" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 498.0
+offset_top = 459.0
+offset_right = 598.0
+offset_bottom = 559.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_con2f")
+
+[connection signal="finished" from="music_menu" to="." method="_on_music_menu_finished"]
+[connection signal="mouse_entered" from="start" to="." method="_on_start_mouse_entered"]
+[connection signal="mouse_exited" from="start" to="." method="_on_start_mouse_exited"]
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="mouse_exited" from="settings" to="." method="_on_settings_mouse_exited"]
+[connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
+[connection signal="mouse_entered" from="exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="exit" to="." method="_on_exit_mouse_exited"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]
